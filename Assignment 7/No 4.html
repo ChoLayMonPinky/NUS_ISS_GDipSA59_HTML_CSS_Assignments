@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Numbers</title>
+    <script>
+        function computeSum() {
+            let n = parseInt(prompt("Enter a number (n):"), 10);
+            let sum = 0;
+            for (let i = 1; i <= n; i++) {
+                sum += i;
+            }
+            alert("The sum of numbers from 1 to " + n + " is: " + sum);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="computeSum()">Compute Sum</button>
+</body>
+</html>

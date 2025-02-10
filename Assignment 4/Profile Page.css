@@ -1,0 +1,32 @@
+body{
+	background-color: lightgrey;
+}
+div{
+	background-color: whitesmoke;
+	border: solid floralwhite;
+	margin: 10px;
+	margin-left: 40%;
+	margin-right: 39%;
+	border-radius: 25px;
+}
+h3{
+	color: brown; 
+	text-align: center;
+}
+img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid #555;
+	margin-bottom: 20px;
+}
+table{
+	text-align: center; 
+	margin-left: 40%;
+}
+tr{
+	background-color: whitesmoke;
+}
+.aboutMe{
+	text-align: center;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polynomial Calculator</title>
+    <script>
+        function computePolynomial() {
+            let x = parseFloat(prompt("Enter a number:"));
+            let result = 3 * Math.pow(x, 3) - 7 * Math.pow(x, 2) + 2 * x + 5;
+            alert("The result of 3x^3 - 7x^2 + 2x + 5 is: " + result);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="computePolynomial()">Compute Polynomial</button>
+</body>
+</html>

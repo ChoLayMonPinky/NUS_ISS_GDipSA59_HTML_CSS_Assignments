@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Reference Table</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculation Reference Table</h1>
+    <table id="calculationTable">
+        <thead>
+            <tr>
+                <th>x</th>
+                <th>x²</th>
+                <th>1/x</th>
+                <th>√x</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        function formatNumber(value, decimals) {
+            // Converts the number to a string and removes trailing zeros
+            return parseFloat(value).toFixed(decimals).replace(/\.?0+$/, '');
+        }
+
+        function generateTable() {
+            const tbody = document.querySelector('#calculationTable tbody');
+
+            for (let x = 1; x <= 5; x++) {
+                const xSquared = formatNumber(x * x, 2);
+                const reciprocal = formatNumber(1 / x, 3);
+                const sqrtX = formatNumber(Math.sqrt(x), 3);
+
+                const row = document.createElement('tr');
+
+                const cellX = document.createElement('td');
+                cellX.textContent = formatNumber(x, 1);
+
+                const cellX2 = document.createElement('td');
+                cellX2.textContent = xSquared;
+
+                const cellReciprocal = document.createElement('td');
+                cellReciprocal.textContent = reciprocal;
+
+                const cellSqrtX = document.createElement('td');
+                cellSqrtX.textContent = sqrtX;
+
+                row.appendChild(cellX);
+                row.appendChild(cellX2);
+                row.appendChild(cellReciprocal);
+                row.appendChild(cellSqrtX);
+
+                tbody.appendChild(row);
+            }
+        }
+
+        window.onload = generateTable;
+    </script>
+</body>
+</html>

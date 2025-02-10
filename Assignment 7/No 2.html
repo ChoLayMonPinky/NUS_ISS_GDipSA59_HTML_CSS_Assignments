@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Greeting</title>
+    <script>
+        function greetBasedOnTime() {
+            let time = parseInt(prompt("Enter the time of day (in 24-hour format):"), 10);
+            let greeting = time < 12 ? "Good Morning" : "Good Afternoon";
+            alert(greeting);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="greetBasedOnTime()">Get Greeting</button>
+</body>
+</html>

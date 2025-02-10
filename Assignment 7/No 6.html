@@ -1,0 +1,133 @@
+
+<!DOCTYPE html> 
+<html> 
+<style type="text/css">
+    body{
+        border-style: solid;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .container{
+        margin-left: 20%;
+        margin-top: 5%;
+    }
+    .textarea{
+        width: 400px;
+        height: 150px;
+        border-style: double;
+    }
+    .textarea2{
+        width: 400px;
+        height: 100px;
+        border-style: double;
+    }
+    .firstOverall{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .first{
+        padding-left: 10%;
+    }
+</style>
+
+<body>
+
+<div class="container">
+        <form id="userForm">
+            <div class="firstOverall">
+            <div>
+                <label for="name">Name:</label><br><br>
+                <label for="age">Age:</label><br><br>
+                <label>Gender:</label><br><br>
+                <label for="phone">Phone:</label><br><br>
+                <label>Hobbies:</label><br><br><br>
+                <button type="button" onclick="validateForm()">Submit</button>
+                <br><br><br>
+                <label for="output">Output:</label><br><br>
+                <div style="margin-top: 150px;"><label for="errors">Errors:</label></div>
+            </div>
+            <div class="first">
+               <input type="text" id="name" name="name">
+                <br><br>
+                <input type="number" id="age" name="age">
+                <br><br>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                 <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+                <br><br>
+                <input type="text" id="phone" name="name">
+                <br><br>
+                <input type="checkbox" id="reading" name="hobby" value="Reading">
+                <label for="reading">Reading</label>
+                <input type="checkbox" id="sports" name="hobby" value="Sports">
+                <label for="sports">Sports</label>
+                <input type="checkbox" id="movies" name="hobby" value="Movies">
+                <label for="movies">Movies</label>
+                <input type="checkbox" id="travelling" name="hobby" value="Travelling">
+                <label for="travelling">Travelling</label>
+                <br><br><br><br><br><br><br>
+                <textarea class="textarea" type="text" id="output" name="output"></textarea>
+                <br><br><br><br>
+                <textarea class="textarea2" type="text" id="errors" name="errors"></textarea>
+                <br><br>
+            </div>
+            </div>
+          
+        </form>
+</div>
+
+<script>
+        function validateForm() {
+    // Clear previous results and errors
+    document.getElementById('output').value = '';
+    document.getElementById('errors').value = '';
+
+    // Get form values
+    const name = document.getElementById('name').value.trim();
+    const age = document.getElementById('age').value.trim();
+    const gender = document.querySelector('input[name="gender"]:checked');
+    const phone = document.getElementById('phone').value.trim();
+    const hobbies = Array.from(document.querySelectorAll('input[name="hobby"]:checked'))
+                          .map(checkbox => checkbox.value);
+
+    let errors = [];
+
+    // Validate Name
+    if (!name) {
+        errors.push('Name should not be blank.');
+    } else if (name.length > 15) {
+        errors.push('Name should be no more than 15 letters long.');
+    }
+
+    // Validate Age
+    if (!age) {
+        errors.push('Age should be numeric.');
+    } else if (isNaN(age) || age < 0) {
+        errors.push('Age should be a non-negative number.');
+    }
+
+    // Validate Gender
+    if (!gender) {
+        errors.push('Gender must be selected.');
+    }
+
+    // Validate Phone
+    if (!phone) {
+        errors.push('Phone should not be blank.');
+    }
+
+    // Display errors or result
+    if (errors.length > 0) {
+        document.getElementById('errors').value = errors.join('\n');
+    } 
+    else {
+        const genderValue = gender.value;
+        const hobbiesList = hobbies.length > 0 ? hobbies.join(', ') : 'None';
+        document.getElementById('output').value = `Name: ${name}, Age: ${age}, Gender: ${genderValue}, Phone: ${phone}, Hobbies: ${hobbiesList}`;
+        }
+    }
+</script>
+
+</body> 
+</html>

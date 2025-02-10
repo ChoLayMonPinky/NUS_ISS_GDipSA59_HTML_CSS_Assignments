@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Portal Registration</title>
+    <link rel="stylesheet" href="Travel Portal.css">
+</head>
+<body>
+    <header>
+        <img src="Travel Logo.jpg" width="150" height="100" alt="Corporate Logo" class="logo">
+        <h1>Travel Portal Registration</h1>
+    </header>
+
+    <main>
+        <form action="mailto:monlaycho1997@gmail.com" method="post" enctype="text/plain">
+            <table>
+                <tr>
+                    <td><label for="firstName">First Name:</label></td>
+                    <td><input type="text" id="firstName" name="firstName" required></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Last Name:</label></td>
+                    <td><input type="text" id="lastName" name="lastName" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone Number:</label></td>
+                    <td><input type="tel" id="phone" name="phone" pattern="\d{4}\d{4}" placeholder= "1234 5678" required></td>
+                </tr>
+                <tr>
+                    <td><label for="dob">Date of Birth:</label></td>
+                    <td><input type="date" id="dob" name="dob" required></td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td>
+                        <input type="radio" id="male" name="gender" value="Male" required>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female">
+                        <label for="female">Female</label>
+                        <input type="radio" id="other" name="gender" value="Other">
+                        <label for="other">Other</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Travel Preferences:</label></td>
+                    <td>
+                        <input type="checkbox" id="beach" name="preference" value="Beach">
+                        <label for="beach">Beach</label>
+                        <input type="checkbox" id="mountain" name="preference" value="Mountain">
+                        <label for="mountain">Mountain</label>
+                        <input type="checkbox" id="city" name="preference" value="City">
+                        <label for="city">City</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="comments">Additional Comments:</label></td>
+                    <td><textarea id="comments" name="comments" rows="4" cols="50"></textarea></td>
+                </tr>
+            </table>
+            <br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Travel Portal. All rights reserved.</p>
+    </footer>
+</body>
+</html>

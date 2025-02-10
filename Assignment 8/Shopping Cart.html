@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="Shopping Cart.Css">
+</head>
+<body>
+    <!-- Header Section -->
+   <header>
+        <h1>Cosmetics Shopping</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">FAQS</a></li>
+            <li><a href="Cart.html">Blog</a></li>
+            <li><a href="#">Offers and Packages</a></li>
+            <li><a href="#">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Products Section -->
+        <h2>Cosmetics</h2>
+        <div class="products">
+            <div class="product">
+                <img src= "Lipstick.jpeg" alt="Lipstick" width="60"></img> 
+                <h3>Lipstick</h3>
+                <p>$10.00</p>
+                <button onclick="addToCart('Lipstick', 10)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src= "Makeup.avif" alt="Makeup" width="60"></img> 
+                <h3>Makeup</h3>
+                <p>$15.00</p>
+                <button onclick="addToCart('Makeup', 15)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src= "Facial.avif" alt="Facial Lotion" width="60"></img> 
+                <h3>Facial Lotion</h3>
+                <p>$20.00</p>
+                <button onclick="addToCart('Facial Lotion', 20)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src= "Conceal.avif" alt="Conceal" width="60"></img> 
+                <h3>Conceal</h3>
+                <p>$10.00</p>
+                <button onclick="addToCart('Conceal', 20)">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Cart Section -->
+        <h2>Your Cart</h2>
+        <div class="cart">
+            <div id="cart-items"></div>
+            <div class="cart-total">
+                <strong>Total: $<span id="total-amount">0.00</span></strong>
+            </div> 
+            <button>Checkout</button>          
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2024 My Shopping Cart. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productName, productPrice) {
+            // Add product to cart
+            cart.push({ name: productName, price: productPrice });
+            renderCart();
+        }
+
+        function removeFromCart(index) {
+            // Remove product from cart by index
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalAmount = document.getElementById('total-amount');
+            
+            cartItems.innerHTML = ''; // Clear current cart items
+
+            let total = 0;
+
+            // Render each item in the cart
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    ${item.name} - $${item.price.toFixed(2)}
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItems.appendChild(cartItem);
+                total += item.price;
+            });
+
+            // Update total amount
+            totalAmount.innerText = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>

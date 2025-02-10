@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Greeting</title>
+    <script>
+        function greetBasedOnTimeAndName() {
+            let name = prompt("Enter your name:");
+            let time = parseInt(prompt("Enter the time of day (in 24-hour format):"), 10);
+            let greeting = time < 12 ? "Good Morning" : "Good Afternoon";
+            alert(greeting + " " + name);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="greetBasedOnTimeAndName()">Get Personalized Greeting</button>
+</body>
+</html>
